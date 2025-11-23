@@ -15,7 +15,9 @@ public class TeleortAnchor : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            player.GetComponent<RaycastInteractor>().DropMovable();
             player.position = Vector3.zero;
+            
         }
     }
 }
