@@ -7,6 +7,7 @@ namespace _9902_A1
     {
         public ExtinguisherType extinguishType;
         public Transform firePoint;
+        public AudioSource maudiosource;
 
         public void Spray()
         {
@@ -18,8 +19,14 @@ namespace _9902_A1
                 {
                     Fire fire = hit.collider.GetComponent<Fire>();
                     fire.Extinguish(extinguishType);
+                    maudiosource.Play();
                 }
             }
+        }
+
+        public void stop()
+        {
+            maudiosource.Stop();
         }
     }
 }

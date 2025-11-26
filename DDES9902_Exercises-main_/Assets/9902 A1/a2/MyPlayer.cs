@@ -14,7 +14,7 @@ public class MyPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKey(KeyCode.G))
         {
             if (rayInteractor.moveSubject != null)
             {
@@ -22,6 +22,18 @@ public class MyPlayer : MonoBehaviour
                 if (extinguisher != null)
                 {
                     extinguisher.Spray();
+                }
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.G))
+        {
+            if (rayInteractor.moveSubject != null)
+            {
+                var extinguisher = rayInteractor.moveSubject.GetComponent<Extinguisher>();
+                if (extinguisher != null)
+                {
+                    extinguisher.stop();
                 }
             }
         }
